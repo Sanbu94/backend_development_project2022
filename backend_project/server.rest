@@ -1,0 +1,26 @@
+GET https://sleepyhead-api.onrender.com/api/sleepyhead
+###
+GET https://sleepyhead-api.onrender.com/api/sleepyhead/2
+###
+POST https://sleepyhead-api.onrender.com/api/sleepyhead HTTP/1.1
+content-type: application/json
+
+{
+  "month": "2023-01-15",
+  "start": "21.10",
+  "end": "07.25",
+  "amount": "10.15"
+}
+###
+PUT https://sleepyhead-api.onrender.com/api/sleepyhead HTTP/1.1
+content-type: application/json
+
+{
+  "id": 8,
+  "month": "2023-01-15",
+  "start": "21.10",
+  "end": "07.10",
+  "amount": "10.00"
+}
+###
+DELETE https://sleepyhead-api.onrender.com/api/sleepyhead/2

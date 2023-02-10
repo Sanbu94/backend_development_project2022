@@ -1,0 +1,31 @@
+{
+  "name": "2022-wk49-final-project-Sanbu94",
+  "version": "1.0.0",
+  "description": "## Topic ### General Project Most of us want to know where our money goes. You now have the chance to create a solution to that question. Create an application for tracking your personal expenses.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --forceExit",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiko-4A00EZ62/2022-wk49-final-project-Sanbu94.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiko-4A00EZ62/2022-wk49-final-project-Sanbu94/issues"
+  },
+  "homepage": "https://github.com/tiko-4A00EZ62/2022-wk49-final-project-Sanbu94#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.3.1",
+    "jest": "^29.3.1",
+    "supertest": "^6.3.3"
+  }
+}

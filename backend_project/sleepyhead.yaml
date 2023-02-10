@@ -1,0 +1,187 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Sleepyhead babys sleep tracker API
+  description: A simple API to track your babys sleep schedule
+servers:
+  - url: https://sleepyhead-api.onrender.com/api/
+paths:
+  /sleepyhead:
+    get:
+      description: Returns JSON data about sleep entries
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    month:
+                      type: string
+                    start:
+                      type: number
+                    end:
+                      type: number
+                    amount:
+                      type: number
+        "400":
+          $ref: "#/components/responses/400Error"
+        "404":
+          $ref: "#/components/responses/404Error"
+        "500":
+          $ref: "#/components/responses/500Error"
+    post:
+      description: Create a new sleep entry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                month:
+                  type: string
+                start:
+                  type: number
+                end:
+                  type: number
+                amount:
+                  type: number
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  month:
+                    type: string
+                  start:
+                    type: number
+                  end:
+                    type: number
+                  amount:
+                    type: number
+        "400":
+          $ref: "#/components/responses/400Error"
+        "404":
+          $ref: "#/components/responses/404Error"
+        "500":
+          $ref: "#/components/responses/500Error"
+    put:
+      description: Update an existing sleep entry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                month:
+                  type: string
+                start:
+                  type: number
+                end:
+                  type: number
+                amount:
+                  type: number
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/sleep"
+        "400":
+          $ref: "#/components/responses/400Error"
+        "404":
+          $ref: "#/components/responses/404Error"
+        "500":
+          $ref: "#/components/responses/500Error"
+  /sleepyhead/{id}:
+    get:
+      description: Search a specific sleep entry using its id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/sleep"
+        "400":
+          $ref: "#/components/responses/400Error"
+        "404":
+          $ref: "#/components/responses/404Error"
+        "500":
+          $ref: "#/components/responses/500Error"
+    delete:
+      description: Delete a specific sleep entry
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Sleep deleted
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Sleep deleted
+components:
+  schemas:
+    sleep:
+      type: object
+      properties:
+        id:
+          type: integer
+        month:
+          type: string
+        start:
+          type: number
+        end:
+          type: number
+        amount:
+          type: number
+  responses:
+    400Error:
+      description: Please, try again.
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: Please, try again.
+    404Error:
+      description: Please, try again.
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: Please, try again.
+    500Error:
+      description: Internal error
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: Internal error
